@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   mongo:
     container_name: mongo
@@ -11,3 +11,8 @@ services:
       - ${MONGO_HOST_DATA}/db:/data/db
     ports:
       - "27017:27017"
+  server:
+    environment:
+      DB_STRING: "mongodb://admin:password@mongo:27017"
+    build:
+      context: .
