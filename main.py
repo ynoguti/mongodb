@@ -1,9 +1,11 @@
 # importando as bibliotecas
 from pymongo import MongoClient
 import pandas as pd
+import os
 
 # Conectando com o Mongo DB
-mongo_client = MongoClient("mongodb://admin:password@localhost:27017")
+
+mongo_client = MongoClient(os.environ.get("DB_STRING"))
 mydb = mongo_client["escola"]
 mycol = mydb["alunos"]
 
